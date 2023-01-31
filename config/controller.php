@@ -17,13 +17,12 @@ function create_kamar($post)
 {
     global $db;
 
-    $id_kamar = $post['id_kamar'];
     $jenis = $post['jenis'];
     $jumlah = $post['jumlah'];
     $harga = $post['harga'];
 
     // query create
-    $query = "INSERT INTO data_kamar VALUES('$id_kamar','$jenis', '$jumlah', '$harga')";
+    $query = "INSERT INTO data_kamar VALUES('$jenis', '$jumlah', '$harga')";
 
     mysqli_query($db, $query);
 
@@ -44,4 +43,14 @@ function update_kamar($post)
     mysqli_query($db, $query);
 
     return mysqli_affected_rows($db);
+}
+
+function hapus_kamar($id_kamar)
+{
+  global $db;
+
+  $query = "DELETE FROM data_kamar WHERE id_kamar = '$id_kamar'";
+
+  mysqli_query($db, $query);
+  return mysqli_affected_rows($db);
 }

@@ -19,10 +19,6 @@ if (isset($_POST['tambah'])) {
     <hr>
     <form action="" method="post">
 
-  <div class="mb-3">
-    <label for="nama" class="form-label">Nomor Kamar</label>
-    <input type="text" class="form-control" id="no_kamar" name="no_kamar" required>
-  </div>
   <select class="form-select" aria-label="Default select example" name="jenis" id="jenis">
     <option selected>Jenis Kamar</option>
     <option value="Supperior">Supperior</option>
