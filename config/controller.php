@@ -17,13 +17,12 @@ function create_kamar($post)
 {
     global $db;
 
-    $id_kamar = $post['id_kamar'];
     $jenis = $post['jenis'];
     $jumlah = $post['jumlah'];
     $harga = $post['harga'];
 
     // query create
-    $query = "INSERT INTO data_kamar VALUES('$id_kamar','$jenis', '$jumlah', '$harga')";
+    $query = "INSERT INTO data_kamar VALUES('$jenis', '$jumlah', '$harga')";
 
     mysqli_query($db, $query);
 

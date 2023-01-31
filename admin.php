@@ -2,6 +2,8 @@
 include 'Layout/header_admin.php';
 
 $data_kamar = select("SELECT * FROM data_kamar");
+$jumlah_kamar = select("SELECT SUM(jumlah_kamar) AS jumlah FROM data_kamar");
+
 ?>
 
 
@@ -34,9 +36,13 @@ $data_kamar = select("SELECT * FROM data_kamar");
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3><?= $kamar['jumlah_kamar']; ?></h3>
+                <h3>
+                <?php foreach ($jumlah_kamar as $jml) :  ?>
+                  <?= $jml['jumlah']; ?>
+                <?php endforeach ?>
+                </h3>
 
-                <p>New Orders</p>
+                <p>Kamar Tersedia</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
