@@ -101,21 +101,22 @@ $data_kamar = select("SELECT * FROM data_kamar");
                   <th>ID Kamar</th>
                   <th>Jenis Kamar</th>
                   <th>Jumlah Kamar</th>
-                  <th>Harga Kamar</th>
+                  <th>Harga Per-Kamar</th>
                   <th>Aksi</th>
                   </tr>
                   </thead>
 
                   <tbody>
+                    <?php $no = 1;?>
                     <?php foreach ($data_kamar as $kamar) :  ?>
                     <tr>
-                      <td><?= $kamar['id_kamar']; ?></td>
+                      <td><?= $no++; ?></td>
                       <td><?= $kamar['jenis_kamar']; ?> </td>
                       <td><?= $kamar['jumlah_kamar']; ?></td>
                       <td>Rp. <?= number_format($kamar['harga_kamar'],0,',','.'); ?></td>
                       <td width="15%" class="text-center">
                         <a href="ubah_kamar.php?id_kamar=<?= $kamar['id_kamar']; ?>" class="btn btn-success">Ubah</a>
-                        <a href="" class="btn btn-danger">Hapus</a>
+                        <a href="hapus_kamar.php?id_kamar=<?= $kamar['id_kamar'];?>" class="btn btn-danger">Hapus</a>
                       </td>
                     </tr>
                     <?php endforeach; ?>

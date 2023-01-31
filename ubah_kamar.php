@@ -3,7 +3,7 @@ include 'Layout/header_admin.php';
 
 $id_kamar = (int)$_GET['id_kamar'];
 
-$data_kamar = select("SELECT * FROM data_kamar WHERE id_kamar = '$id_kamar'");
+$kamar = select("SELECT * FROM data_kamar WHERE id_kamar = '$id_kamar'")[0];
 
 // check btn tambah
 if (isset($_POST['ubah'])) {
@@ -22,24 +22,20 @@ if (isset($_POST['ubah'])) {
     <hr>
     <form action="" method="post">
 
-  <div class="mb-3">
-    <label for="nama" class="form-label">Nomor Kamar</label>
-    <input type="text" class="form-control" id="no_kamar" name="no_kamar" value="<?php echo $data_kamar['id_kamar']?>">
-  </div>
-  <select class="form-select" aria-label="Default select example" name="jenis" id="jenis" value="<?= $data_kamar['jenis']; ?>">
-    <option selected>Jenis Kamar</option>
+  <select class="form-select" aria-label="Default select example" name="jenis" id="jenis" >
+    <option selected><?= $kamar['jenis_kamar']; ?></option>
     <option value="Supperior">Supperior</option>
     <option value="Deluxe">Deluxe</option>
   </select>
   <div class="mb-3">
     <label for="jumlah" class="form-label">Jumlah Kamar</label>
-    <input type="number" class="form-control" id="jumlah" name="jumlah" value="<?= $data_kamar['jumlah']; ?>">  
+    <input type="number" class="form-control" id="jumlah" name="jumlah" value="<?= $kamar['jumlah_kamar']?>">  
   </div>
   <div class="mb-3">
     <label for="harga" class="form-label">Harga Kamar</label>
-    <input type="number" class="form-control" id="harga" name="harga" value="<?= $data_kamar['harga']; ?>" required>
+    <input type="number" class="form-control" id="harga" name="harga" value="<?= $kamar['harga_kamar']?>" >
   </div>
-  <button type="submit" name="tambah" class="btn btn-primary" style="float: right;">Ubah</button>
+  <button type="submit" name="ubah" class="btn btn-primary" style="float: right;">Ubah</button>
 </form>
 </div>
 

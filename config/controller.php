@@ -45,3 +45,13 @@ function update_kamar($post)
 
     return mysqli_affected_rows($db);
 }
+
+function hapus_kamar($id_kamar)
+{
+  global $db;
+
+  $query = "DELETE FROM data_kamar WHERE id_kamar = '$id_kamar'";
+
+  mysqli_query($db, $query);
+  return mysqli_affected_rows($db);
+}
